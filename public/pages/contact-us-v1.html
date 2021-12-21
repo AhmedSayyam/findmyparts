@@ -1,0 +1,236 @@
+<!-- site__body -->
+<div class="site__body">
+ 
+  <div class="block-header block-header--has-breadcrumb block-header--has-title">
+    <div class="container">
+      <div class="block-header__body">
+        <nav
+          class="breadcrumb block-header__breadcrumb"
+          aria-label="breadcrumb"
+        >
+          <ol class="breadcrumb__list">
+            <li
+              class="breadcrumb__spaceship-safe-area"
+              role="presentation"
+            ></li>
+            <li
+              class="
+                breadcrumb__item
+                breadcrumb__item--parent
+                breadcrumb__item--first
+              "
+            >
+              <a href="#!home" class="breadcrumb__item-link">{{'HOME' | translate}}</a>
+            </li>
+           
+            <li
+              class="
+                breadcrumb__item
+                breadcrumb__item--current
+                breadcrumb__item--last
+              "
+              aria-current="page"
+            >
+              <span class="breadcrumb__item-link">{{'CONTACT_US' | translate}}</span>
+            </li>
+            <li
+              class="breadcrumb__title-safe-area"
+              role="presentation"
+            ></li>
+          </ol>
+        </nav>
+        <h1 class="block-header__title">
+          {{'CONTACT_US' | translate}}
+          <!-- Contact Us -->
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="container container--max--lg">
+      <div class="card">
+        <div class="card-body card-body--padding--2">
+          <div class="row">
+            <div class="col-12 col-lg-6 pb-4 pb-lg-0">
+              <div class="mr-1">
+                <h4 class="contact-us__header card-title">
+                  {{'OUR_ADDRESS' | translate}}
+                  <!-- Our Address -->
+                </h4>
+                <div class="contact-us__address">
+                  <p>
+                    {{'ADDRESS' | translate}} <br />
+                    {{'COMPANY_EMAIL' | translate}} <br />
+                    {{'COMPANY_PHONE' | translate}}
+                    <!-- 715 Fake Ave, Apt. 34, New York, NY 10021 USA<br />
+                    Email: Sales@findmyparts.net<br />
+                    Phone Number: +971505861800 -->
+                  </p>
+                  <p>
+                    <strong>
+                      {{'COMPANY_HOURS' | translate}}
+                      <!-- Opening Hours -->
+                    </strong><br />
+                    {{'MON_FRI' | translate}} <br />
+                    {{'SAT' | translate}} <br />
+                    {{'SUN' | translate}}
+                    <!-- Monday to Friday: 8am-8pm<br />
+                    Saturday: 8am-6pm<br />
+                    Sunday: 10am-4pm -->
+                  </p>
+                  <p>
+                    <strong>
+                      {{'COMMENT' | translate}}
+                      <!-- Comment -->
+                    </strong><br />
+                    {{'COMMENT_TEXT' | translate}}
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Curabitur suscipit suscipit mi, non tempor nulla
+                    finibus eget. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. -->
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="ml-1">
+                <h4 class="contact-us__header card-title">
+                  {{'LEAVE_MESSAGE' | translate}}
+                  <!-- Leave us a Message -->
+                </h4>
+                <form name="contactForm" novalidate>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="form-name">
+                        {{'NAME_LABEL' | translate}}
+                        <!-- Your Name -->
+                      </label>
+                      <input
+                        type="text"
+                        id="form-name"
+                        class="form-control"
+                        placeholder="{{ 'FULLNAME' | translate }}"
+                        pattern="^[a-z A-Z]*$" required="required"
+                        name="form_name"
+                       
+                      />
+                       <!--ng-model="ng_name"-->
+                      <!--<div ng-show="contactForm.form_name.$dirty && contactForm.form_name.$invalid">-->
+                      <!--  <small class="text-danger" ng-show="contactForm.form_name.$invalid">-->
+                      <!--  {{'ONLY_CHARACTERS' | translate}}-->
+                      <!--  </small>  <br>-->
+                      <!--  <small class="text-danger" ng-show="contactForm.form_name.$error.required">-->
+                      <!--    {{'REQUIRED' | translate}}-->
+                      <!--  </small>-->
+                      <!--</div>-->
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="form-email">
+                        {{'EMAIL_LABEL' | translate}}
+                        <!-- Email -->
+                      </label>
+                      <input
+                        type="email"
+                        id="form-email"
+                        class="form-control"
+                        placeholder="{{ 'EMAIL' | translate }}"
+                        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required="required"
+                        name="form_email"
+                        
+                      />
+                      <!--ng-model="ng_email"-->
+                      <!--<div ng-show="contactForm.form_email.$dirty && contactForm.form_email.$invalid">-->
+                      <!--  <small class="text-danger" ng-show="contactForm.form_email.$invalid">-->
+                      <!--    {{'INVALID_FORMAT' | translate}}!-->
+                          
+                      <!--  </small> <br>-->
+                      <!--  <small class="text-danger" ng-show="contactForm.form_email.$error.required">-->
+                      <!--    {{'REQUIRED' | translate}}-->
+                        
+                      <!--  </small>-->
+                      <!--</div>-->
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="form-subject">
+                      {{'SUBJECT' | translate}}
+                      <!-- Subject -->
+                    </label>
+                    <input
+                      type="text"
+                      id="form-subject"
+                      class="form-control"
+                      placeholder="{{ 'SUBJECT' | translate }}"
+                      pattern="^[a-z A-Z]*$" required="required"
+                      name="form_subject"
+                      
+                    />
+                    <!--ng-model="ng_subject"-->
+                    <!--<div ng-show="contactForm.form_subject.$dirty && contactForm.form_subject.$invalid">-->
+                    <!--  <small class="text-danger" ng-show="contactForm.form_subject.$invalid">-->
+                    <!--    {{'ONLY_CHARACTERS' | translate}}-->
+                    <!--  </small>  <br>-->
+                    <!--  <small class="text-danger" ng-show="contactForm.form_subject.$error.required">-->
+                    <!--  {{'REQUIRED' | translate}}-->
+                    <!--  </small>-->
+                    <!--</div>-->
+                  </div>
+                  <div class="form-group">
+                    <label for="form-message">
+                      {{'MESSAGE' | translate}}
+                      <!-- Message -->
+                    </label>
+                    <textarea
+                      id="form-message"
+                      class="form-control"
+                      placeholder="{{ 'MESSAGE' | translate }}"
+                      rows="4"
+                       required="required"
+                      name="form_message"
+                      
+                    ></textarea>
+                    <!--ng-model="ng_message"-->
+                    <!--<div ng-show="contactForm.form_message.$dirty && contactForm.form_message.$invalid">-->
+                    <!--  <small class="text-danger" ng-show="contactForm.form_message.$error.required">-->
+                    <!--{{'REQUIRED' | translate}}-->
+                    <!--  </small>-->
+                    <!--</div>-->
+                  </div>
+                  <button type="submit" class="btn btn-primary"
+                    
+                    >
+                      <!--ng-disabled="contactForm.$invalid "-->
+                      <!--ng-click="send_message()"-->
+                    {{'SEND_MESSAGE' | translate}}
+                  </button>
+                </form>
+              </div>
+              <!--ng-show="message_flag"-->
+              <div >
+                <span class="d-block p-2 mt-2 rounded bg-success text-white">
+                  {{'THANKYOU_RESPONSE' | translate}}
+                  <!-- Thank you for your valuable response. -->
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mt-3" id="location_box" tabindex="-1">
+      <div class="block-map block">
+        <div class="block-map__body">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.2988122759884!2d55.41711521501141!3d25.294162783851245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1093ca1458e9588a!2zMjXCsDE3JzM5LjAiTiA1NcKwMjUnMDkuNSJF!5e0!3m2!1sen!2s!4v1637680429077!5m2!1sen!2s"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block-space block-space--layout--before-footer"></div>
+</div>
+<!-- site__body / end -->

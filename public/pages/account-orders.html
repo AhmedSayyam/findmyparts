@@ -1,0 +1,200 @@
+
+        <!-- site__body -->
+        <div class="site__body">
+            <div class="block-space block-space--layout--after-header"></div>
+            <div class="block">
+                <div class="container container--max--xl">
+                    <div class="row">
+                        <div class="col-12 col-lg-3 d-flex">
+                            <div class="account-nav flex-grow-1">
+                                <h4 class="account-nav__title">
+                                  {{'NAVIGATION' | translate}}
+                                  <!-- Navigation -->
+                                
+                                </h4>
+                                <ul class="account-nav__list">
+                                    <li class="account-nav__item ">
+                                      <a href="#!dashboard">
+                                        {{'DASHBOARD' | translate}}
+                                        <!-- Dashboard -->
+                                      </a>
+                                    </li>
+                                    <!-- <li class="account-nav__item">
+                                      <a href="#!garage">Garage</a>
+                                    </li> -->
+                                    <li class="account-nav__item account-nav__item--active">
+                                      <a href="#!orders">
+                                      {{'ORDER_HISTORY' | translate}}  
+                                        <!-- Order History -->
+                                      </a>
+                                    </li>
+                                    <li class="account-nav__item">
+                                      <a href="#!profile">
+                                      {{'EDIT_PROFILE' | translate}}  
+                                        <!-- Edit Profile -->
+                                      </a>
+                                    </li>
+                                    
+                                    <!-- <li class="account-nav__item">
+                                      <a href="#!order-details">Order Details</a>
+                                    </li> -->
+                                    <li class="account-nav__item">
+                                      <a href="#!account-address">
+                                      {{'SHIPPING_ADDRESS' | translate}}  
+                                        <!-- Shipping Address -->
+                                      </a>
+                                    </li>
+                                    <!-- <li class="account-nav__item">
+                                      <a href="#!edit-address">Edit Address</a>
+                                    </li> -->
+                                    <li class="account-nav__item">
+                                      <a href="#!password">
+                                      {{'PASSWORD' | translate}}  
+                                        <!-- Password -->
+                                      </a>
+                                    </li>
+                                    <li class="account-nav__divider" role="presentation"></li>
+                                    <li class="account-nav__item">
+                                      <a href="#!logout">
+                                      {{'LOGOUT' | translate}}  
+                                        <!-- Logout -->
+                                      </a>
+                                    </li>
+                                  </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 mt-4 mt-lg-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>
+                                      {{'ORDER_HISTORY' | translate}}
+                                      <!-- Order History -->
+                                    </h5>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="text-center my-3" ng-if="orders_list == ''">
+                                    <span class="d-block text-center text-danger my-3">
+                                      {{'NO_ORDER' | translate}}..........
+                                      <!-- Untill, You have place no order ..... -->
+                                    </span>
+                                </div>
+                                <div class="card-table" ng-if="orders_list != ''">
+                                    <div class="table-responsive-sm">
+                                        <table>
+                                            <thead>
+                                              <tr>
+                                                <th>
+                                                  {{'ID'}}
+                                                  <!-- ID -->
+                                                </th>
+                                                <th>
+                                                {{'ORDER_NO' | translate}}  
+                                                  <!-- Order No. -->
+                                                </th>
+                                                <th>
+                                                {{'DATE' | translate}}  
+                                                  <!-- Date -->
+                                                </th>
+                                                <th>
+                                                  {{'STATUS' | translate }}
+                                                  <!-- Status -->
+                                                </th>
+                                                <th>
+                                                  {{'TOTAL' | translate}}
+                                                  <!-- Total -->
+                                                </th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <div class="text-center" id="orders-dimmer">
+                                                        <div class="spinner-grow text-dark mx-2" role="status">
+                                                          <span class="sr-only">Loading...</span>
+                                                        </div>
+                                                        <div class="spinner-grow text-dark mx-2" role="status">
+                                                          <span class="sr-only">Loading...</span>
+                                                        </div>
+                                                        <div class="spinner-grow text-dark mx-2" role="status">
+                                                          <span class="sr-only">Loading...</span>
+                                                        </div>
+                                                        <div class="spinner-grow text-dark mx-2" role="status">
+                                                          <span class="sr-only">Loading...</span>
+                                                        </div>
+                                                        <div class="spinner-grow text-dark mx-2" role="status">
+                                                          <span class="sr-only">Loading...</span>
+                                                        </div>
+                                                      </div>
+                                                </tr>
+                                                <tr dir-paginate="ol in orders_list | itemsPerPage:5 ">
+                                                    <td>{{$index+1}}</td>
+                                                    <td>
+                                                        <a href="#!order-details/{{ol.order_number}}">#{{ol.order_number}}</a>
+                                                    </td>
+                                                    <td>{{ol.created_on}}</td>
+                                                    <td>
+                                                      <span class="badge badge-success">{{ol.status}}</span>
+                                                      <!-- <span ng-if="ol.status == 0" class="badge badge-danger">
+                                                        Pending
+                                                      </span>
+                                                      <span ng-if="ol.status == 1" class="badge badge-success">
+                                                        Verified
+                                                      </span>
+                                                      <span ng-if="ol.status == 2" class="badge badge-dark">
+                                                        Cancelled
+                                                      </span> -->
+                                                       <!-- getRate(sp.price) | currency:to_currency:2 -->
+                                                    </td>
+                                                    <td>{{getRate(ol.total_amount) | currency:to_currency:2  }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="py-3">
+                                          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="public/pages/pagination.html"></dir-pagination-controls>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-divider"></div>
+                                <!-- <div class="card-footer">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
+                                                <span class="page-link__arrow page-link__arrow--left" aria-hidden="true"><svg width="7" height="11">
+                                                        <path d="M6.7,0.3L6.7,0.3c-0.4-0.4-0.9-0.4-1.3,0L0,5.5l5.4,5.2c0.4,0.4,0.9,0.3,1.3,0l0,0c0.4-0.4,0.4-1,0-1.3l-4-3.9l4-3.9C7.1,1.2,7.1,0.6,6.7,0.3z" />
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item active" aria-current="page">
+                                            <span class="page-link">
+                                                2
+                                                <span class="sr-only">(current)</span>
+                                            </span>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item page-item--dots">
+                                            <div class="pagination__dots"></div>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link page-link--with-arrow" href="" aria-label="Next">
+                                                <span class="page-link__arrow page-link__arrow--right" aria-hidden="true"><svg width="7" height="11">
+                                                        <path d="M0.3,10.7L0.3,10.7c0.4,0.4,0.9,0.4,1.3,0L7,5.5L1.6,0.3C1.2-0.1,0.7,0,0.3,0.3l0,0c-0.4,0.4-0.4,1,0,1.3l4,3.9l-4,3.9
+	C-0.1,9.8-0.1,10.4,0.3,10.7z" />
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-space block-space--layout--before-footer"></div>
+        </div>
+        <!-- site__body / end -->
+    
+    

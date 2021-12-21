@@ -1,0 +1,156 @@
+
+  <style>
+    .product_card{
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        margin: 0;
+    }
+    .product_card:hover{
+        cursor: pointer;
+        /* background-color: #f7f7f7; */
+        border: 1px solid #ffffff;
+        box-shadow: 2px 3px 10px grey;
+    }
+    .btn-block{
+      background-color: black;
+      border: 1px solid black;
+      color: #ffffff;
+      transition: 0.3s;
+    }
+    .btn-block:hover{
+      border: 1px solid #e52727;
+      background-color: #e52727;
+      color: #ffffff;
+    }
+</style>
+  <!-- site__body -->
+  <div class="site__body">
+      <div
+        class="
+          block-header block-header--has-breadcrumb block-header--has-title
+        "
+      >
+        <div class="container">
+          <div class="block-header__body">
+            <nav
+              class="breadcrumb block-header__breadcrumb"
+              aria-label="breadcrumb"
+            >
+              <ol class="breadcrumb__list">
+                <li
+                  class="breadcrumb__spaceship-safe-area"
+                  role="presentation"
+                ></li>
+                <li
+                  class="
+                    breadcrumb__item
+                    breadcrumb__item--parent
+                    breadcrumb__item--first
+                  "
+                >
+                  <a href="#!home" class="breadcrumb__item-link">Home</a>
+                </li>
+                <li class="breadcrumb__item breadcrumb__item--parent">
+                  <a href="" class="breadcrumb__item-link">Breadcrumb</a>
+                </li>
+                <li
+                  class="
+                    breadcrumb__item
+                    breadcrumb__item--current
+                    breadcrumb__item--last
+                  "
+                  aria-current="page"
+                >
+                  <span class="breadcrumb__item-link">Current Page</span>
+                </li>
+                <li
+                  class="breadcrumb__title-safe-area"
+                  role="presentation"
+                ></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="container p-0">
+        <div class="text-center" id="products-dimmer">
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+          
+          <div class="py-2" ng-if="wheels_list == '' ">
+              <h4 class="text-center">No Product Found</h4>
+          </div>
+        <h3 class="block-header__title text-center m-0 p-0 pb-3" ng-show="wheels_list">Wheels and Tyres</h3>
+            <div class="row ">
+              <div class="col-md-3" dir-paginate="sp in wheels_list | itemsPerPage:12" 
+               ng-show="sp.category_id==3 || sp.category_id==4"
+               >
+            
+                <div class="card border-none border-light rounded my-2  p-2 product_card" >
+                  <a href="#!product-detail/{{sp.product_id}}/{{sp.category_id}}/{{sp.part_no}}">
+                    <div class="card-img">
+                      <img ng-src="{{sp.image1}}" alt="" class="card-img-top" width="100%" height="200px"
+                      style="object-fit: cover;object-position: center;">
+                    </div>
+                    <div class="card-body p-0 px-1">
+                      <h6 class="pt-3 m-0" style="text-transform: capitalize;color: black;">{{sp.product_name}}</h6>
+                      <div class="d-flex justify-content-between align-items-center py-2">
+                        <span>{{ getRate(sp.price) | currency:to_currency:0}}</span>
+                        <small class=" text-muted">{{sp.type_label}}</small>
+                      </div>
+                    </div>
+                    <div class="card-footer p-0 px-1">
+                      <button class="btn btn-block btn-outline">Buy Now</button>
+                    </div>
+                  </a>
+                </div> 
+               
+              </div>
+            </div>
+            <div class="py-3">
+              <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandlerP(newPageNumber)" template-url="public/pages/pagination.html"></dir-pagination-controls>
+            </div>
+      </div>
+
+      <!-- <div class="container mb-3">
+        <h3 class="block-header__title text-center m-0 p-0 py-3" ng-if="parts_list == '' ">Old Products</h3>
+            <div class="row ">
+              <div class="col-md-3" ng-repeat="sp in parts_list" ng-if="sp.type_label == 'Old Product'">
+                <div class="card border-none border-light rounded my-2  p-2 product_card" >
+                  <a href="#!product-detail/{{sp.product_id}}/{{sp.category_id}}">
+                    <div class="card-img">
+                      <img ng-src="{{sp.image1}}" alt="" class="card-img-top" width="100%" height="200px"
+                      style="object-fit: cover;object-position: center;">
+                    </div>
+                    <div class="card-body p-0 px-1">
+                      <h6 class="pt-3 m-0" style="text-transform: capitalize;color: black;">{{sp.product_name}}</h6>
+                      <div class="d-flex justify-content-between align-items-center py-2">
+                        <span>{{getRate(sp.price) | currency:to_currency:0}}</span>
+                        <small class="text-muted">{{sp.type_label}}</small>
+                      </div>
+                    </div>
+                    <div class="card-footer p-0 px-1">
+                      <button class="btn btn-block btn-outline">Buy Now</button>
+                    </div>
+                  </a>
+                </div>   
+              </div>
+            </div>
+      </div> -->
+    </div>
+    <!-- site__body / end -->
+    

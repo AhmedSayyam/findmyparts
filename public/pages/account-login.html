@@ -1,0 +1,164 @@
+
+      <!-- site__body -->
+      <div class="site__body">
+        <div class="block-space block-space--layout--after-header"></div>
+        <div class="block">
+          <div class="container container--max--lg">
+            <div class="row">
+              <div class="col-md-6 mx-auto d-flex">
+                <div class="card flex-grow-1 mb-md-0 mr-0 mr-lg-3 ml-0 ml-lg-4">
+                  <div class="card-body card-body--padding--2">
+                    <h3 class="card-title">
+                      {{'LOGIN' | translate}}
+                      <!-- Login -->
+                    </h3>
+                    <form name="userForm" novalidate>
+                      <div class="form-group">
+                        <label for="signin-email">
+                          {{'EMAIL' | translate}}
+                          <!-- Email address -->
+                        </label>
+                        <input
+                          id="signin-email"
+                          type="email"
+                          class="form-control"
+                          placeholder="{{'EMAIL' | translate}}"
+                          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required="required"
+                          name="user_email"
+                          ng-model="ng_usermail"
+                        />
+                        <div ng-show="userForm.user_email.$dirty && userForm.user_email.$invalid">
+                          <small class="text-danger" ng-show="userForm.user_email.$invalid">
+                          {{'INVALID_FORMAT' | translate}}
+                            <!-- Invalid Format! -->
+                          </small> <br>
+                          <small class="text-danger" ng-show="userForm.user_email.$error.required">
+                            {{'REQUIRED' | translate}}
+                            <!-- Required. -->
+                          </small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="signin-password">
+                          {{'PASSWORD' | translate}}
+                          <!-- Password -->
+                        </label>
+                        <input
+                          id="signin-password"
+                          type="password"
+                          class="form-control"
+                          placeholder="{{'PASSWORD' | translate}}"
+                          required="required"
+                          maxlength="16"
+                          name="user_password"
+                          ng-model="ng_userpassword"
+                        />
+                        <div ng-show="userForm.user_password.$dirty && userForm.user_password.$invalid">
+                          <small class="text-danger" ng-show="userForm.user_password.$invalid">
+                            {{'INVALID' | translate}}
+                            <!-- Invalid! -->
+                          </small> <br>
+                          <small class="text-danger" ng-show="userForm.user_password.$error.required">
+                            {{'REQUIRED' | translate}}
+                            <!-- Required. -->
+                          </small>
+                        </div>
+                        <!-- <small class="form-text text-muted">
+                          <a href="">Forgot password?</a>
+                        </small> -->
+                      </div>
+                      <div class="text-center" ng-show="not_register">
+                        <small class="d-block text-danger">
+                          {{'INVALID_EMAIL' | translate}}
+                          <!-- Invalid Email and Password -->
+                        </small>
+                      </div>
+                      <!-- <div class="form-group">
+                        <div class="form-check">
+                          <span class="input-check form-check-input">
+                            <span class="input-check__body">
+                              <input
+                                class="input-check__input"
+                                type="checkbox"
+                                id="signin-remember"
+                              />
+                              <span class="input-check__box"></span>
+                              <span class="input-check__icon"
+                                ><svg width="9px" height="7px">
+                                  <path
+                                    d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <label class="form-check-label" for="signin-remember"
+                            >Remember Me</label
+                          >
+                        </div>
+                      </div> -->
+                      <div class="form-group mb-0">
+                        <button type="submit" class="btn btn-block btn-primary mt-3"
+                        ng-disabled="userForm.$invalid "
+                        ng-click="login()"
+                        >
+                        {{'LOGIN' | translate}}
+                          <!-- Login -->
+                        </button>
+                      </div>
+                    </form>
+                    <a href="#!forgot" class="text-primary text-right d-block p-1" style="font-size:13px;">
+                      {{'FORGOT_PASSWORD' | translate}}?
+                      <!-- Forgot Password? -->
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-md-6 d-flex mt-4 mt-md-0">
+                <div class="card flex-grow-1 mb-0 ml-0 ml-lg-3 mr-0 mr-lg-4">
+                  <div class="card-body card-body--padding--2">
+                    <h3 class="card-title">Register</h3>
+                    <form>
+                      <div class="form-group">
+                        <label for="signup-email">Email address</label>
+                        <input
+                          id="signup-email"
+                          type="email"
+                          class="form-control"
+                          placeholder="customer@example.com"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input
+                          id="signup-password"
+                          type="password"
+                          class="form-control"
+                          placeholder="Secret word"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="signup-confirm">Repeat password</label>
+                        <input
+                          id="signup-confirm"
+                          type="password"
+                          class="form-control"
+                          placeholder="Secret word"
+                        />
+                      </div>
+                      <div class="form-group mb-0">
+                        <button type="submit" class="btn btn-primary mt-3">
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+      </div>
+      <!-- site__body / end -->
+    

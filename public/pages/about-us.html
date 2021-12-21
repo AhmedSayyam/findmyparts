@@ -1,0 +1,419 @@
+
+<style>
+  .about_box{
+    box-sizing: border-box;
+    transition: transform .2s
+  }
+  .about_box:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+  .owner_box{
+    background-color: #cb1818;
+  }
+  .vision_box{
+    background-color: #262626;
+  }
+  .preseident{
+    color: #cb1818;
+  }
+</style>
+    <!-- site -->
+    <div class="site">
+    
+      <!-- site__body -->
+      <div class="site__body">
+        <div class="about">
+          <div class="about__body">
+            <div class="about__image">
+              <div
+                class="about__image-bg"
+                style=" background-image: url('public/assets/images/about-1903x1903.jpg') !important;"
+              ></div>
+              <div class="decor about__image-decor decor--type--bottom">
+                <div class="decor__body">
+                  <div class="decor__start"></div>
+                  <div class="decor__end"></div>
+                  <div class="decor__center"></div>
+                </div>
+              </div>
+            </div>
+            <div class="about__card">
+              <div class="about__card-title">
+                {{'ABOUT_US' | translate}}
+                <!-- About Us -->
+              </div>
+              <div class="about__card-text">
+                {{'ABOUT_DESC_ONE' | translate}}
+                <!-- Find My Parts is an international company with 30 years of
+                history selling spare parts for cars, trucks and motorcycles.
+                During our work we managed to create a unique service for the
+                sale and delivery of spare parts around the world. -->
+              </div>
+              <!-- <div class="about__card-author">Ryan Ford, CEO RedParts</div> -->
+              <div class="about__card-signature">
+                <img
+                  src="public/assets/images/signature.jpg"
+                  width="160"
+                  height="55"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="about__indicators">
+              <div class="about__indicators-body">
+                <div class="about__indicators-item">
+                  <div class="about__indicators-item-value">350</div>
+                  <div class="about__indicators-item-title">
+                    {{'STORE_TEXT' | translate}}
+                    <!-- Stores around the world -->
+                  </div>
+                </div>
+                <div class="about__indicators-item">
+                  <div class="about__indicators-item-value">80 000</div>
+                  <div class="about__indicators-item-title">
+                    {{'AUTO_PARTS' | translate}}
+                    <!-- Original auto parts -->
+                  </div>
+                </div>
+                <div class="about__indicators-item">
+                  <div class="about__indicators-item-value">5 000</div>
+                  <div class="about__indicators-item-title">
+                    {{'SATISFIED' | translate}}
+                    <!-- Satisfied customers -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-space block-space--layout--divider-xl"></div>
+        <div class="container mb-5">
+          <div class="row">
+            <div class="col-lg-4 mt-3">
+              <div class="text-white shadow-sm p-4 rounded owner_box about_box">
+                <h4>{{'OWNER' | translate}} </h4>
+                <span class="bg-dark px-3 py-1 rounded">{{'PRESIDENT' | translate}}</span>
+                <p class="pt-2">{{'OWNER_DESC' | translate}}</p>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-3">
+              <div class="bg-white shadow p-4 rounded about_box">
+                <h4>{{'MISSION_STAT' | translate}}</h4>
+                <p>{{'MISSION_STAT_DESC' | translate}}</p>
+              </div>
+            </div>
+            <div class="col-lg-4 mt-3">
+              <div class=" text-white shadow-sm p-4 rounded vision_box about_box">
+                <h4>{{'VISION' | translate}}</h4>
+                <p>{{'VISION_DESC' | translate}}</p>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <!--<div class="block block-teammates">-->
+        <!--  <div class="container container--max--xl">-->
+        <!--    <div class="block-teammates__title">-->
+        <!--      {{'TEAM' | translate}}  -->
+              <!-- Professional Team -->
+        <!--    </div>-->
+        <!--    <div class="block-teammates__subtitle">-->
+        <!--      {{'TEAM_TEXT' | translate}}-->
+              <!-- Meet this is our professional team. -->
+        <!--    </div>-->
+        <!--    <div class="block-teammates__list">-->
+        <!--      <div class="owl-carousel">-->
+        <!--        <div class="block-teammates__item teammate">-->
+        <!--          <div class="teammate__avatar">-->
+        <!--            <img src="public/assets/images/teammates/teammate1-206x206.jpg" alt="" />-->
+        <!--          </div>-->
+        <!--          <div class="teammate__info">-->
+        <!--            <div class="teammate__name">-->
+        <!--              {{'ALEEM' | translate}}-->
+                      <!-- Syed Aleem Shah -->
+        <!--            </div>-->
+        <!--            <div class="teammate__position">-->
+        <!--            {{'ALEEM_POS' | translate}}-->
+                      <!-- Chief Executive Officer -->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--        <div class="block-teammates__item teammate">-->
+        <!--          <div class="teammate__avatar">-->
+        <!--            <img src="public/assets/images/teammates/teammate2-206x206.jpg" alt="" />-->
+        <!--          </div>-->
+        <!--          <div class="teammate__info">-->
+        <!--            <div class="teammate__name">-->
+        <!--              {{'SMITH' | translate}}-->
+                      <!-- Samantha Smith -->
+        <!--            </div>-->
+        <!--            <div class="teammate__position">-->
+        <!--              {{'SMITH_POS' | translate}}-->
+                      <!-- Account Manager -->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--        <div class="block-teammates__item teammate">-->
+        <!--          <div class="teammate__avatar">-->
+        <!--            <img src="public/assets/images/teammates/teammate3-206x206.jpg" alt="" />-->
+        <!--          </div>-->
+        <!--          <div class="teammate__info">-->
+        <!--            <div class="teammate__name">-->
+        <!--              {{'HARRIS' | translate}}-->
+                      <!-- Anthony Harris -->
+        <!--            </div>-->
+        <!--            <div class="teammate__position">-->
+        <!--              {{'HARRID_POS' | translate}}-->
+                      <!-- Finance Director -->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--        <div class="block-teammates__item teammate">-->
+        <!--          <div class="teammate__avatar">-->
+        <!--            <img src="public/assets/images/teammates/teammate4-206x206.jpg" alt="" />-->
+        <!--          </div>-->
+        <!--          <div class="teammate__info">-->
+        <!--            <div class="teammate__name">-->
+        <!--              {{'MILLER' | translate}}-->
+                      <!-- Katherine Miller -->
+        <!--            </div>-->
+        <!--            <div class="teammate__position">-->
+        <!--              {{'MILLER_POS' | translate}}-->
+                      <!-- Marketing Officer -->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--        <div class="block-teammates__item teammate">-->
+        <!--          <div class="teammate__avatar">-->
+        <!--            <img src="public/assets/images/teammates/teammate5-206x206.jpg" alt="" />-->
+        <!--          </div>-->
+        <!--          <div class="teammate__info">-->
+        <!--            <div class="teammate__name">-->
+        <!--              {{'BORIS' | translate}}-->
+                      <!-- Boris Gilmore -->
+        <!--            </div>-->
+        <!--            <div class="teammate__position">-->
+        <!--              {{'BORIS_POS'  | translate}}-->
+                      <!-- Engineer -->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--</div>-->
+        <div class="block-space block-space--layout--divider-xl"></div>
+        <div class="block block-reviews">
+          <div class="container">
+            <div class="block-reviews__title">
+              {{'TESTIMONIALS' | translate}}
+              <!-- Testimonials -->
+            </div>
+            <div class="block-reviews__subtitle">
+              {{'TESTIMONIALS_TEXT' | translate}} <br /> {{'TESTI_TEXT' | translate}}
+              <!-- During our work we have accumulated<br />hundreds of positive
+              reviews. -->
+            </div>
+            <div class="block-reviews__list">
+              <div class="owl-carousel">
+                <div class="block-reviews__item">
+                  <div class="block-reviews__item-avatar">
+                    <img
+                      src="public/assets/images/testimonials/testimonial-1-190x190.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="block-reviews__item-content">
+                    <div class="block-reviews__item-text">
+                      {{'TESTI_ONE' | translate}}
+                      <!-- This division is not obsolete but has changed. Natural
+                      philosophy has split into the various natural sciences,
+                      especially astronomy, and cosmology. Moral philosophy has
+                      birthed the social sciences, but still includes value
+                      theory. -->
+                    </div>
+                    <div class="block-reviews__item-meta">
+                      <div class="block-reviews__item-rating">
+                        <div class="rating">
+                          <div class="rating__body">
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div class="rating__star"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="block-reviews__item-author">
+                        {{'TESTI_ONE_NAME' | translate}}
+                        <!-- Jessica Moore, CEO Meblya -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="block-reviews__item">
+                  <div class="block-reviews__item-avatar">
+                    <img
+                      src="public/assets/images/testimonials/testimonial-2-190x190.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="block-reviews__item-content">
+                    <div class="block-reviews__item-text">
+                      {{'TESTI_TWO' | translate}}
+                      <!-- Philosophical questions can be grouped into categories.
+                      These groupings allow philosophers. The groupings also
+                      make philosophy easier for students to approach. -->
+                    </div>
+                    <div class="block-reviews__item-meta">
+                      <div class="block-reviews__item-rating">
+                        <div class="rating">
+                          <div class="rating__body">
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="block-reviews__item-author">
+                        {{'TESTI_TWO_NAME' | translate}}
+                        <!-- Pete Bridges, Truck driver -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="block-reviews__item">
+                  <div class="block-reviews__item-avatar">
+                    <img
+                      src="public/assets/images/testimonials/testimonial-3-190x190.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="block-reviews__item-content">
+                    <div class="block-reviews__item-text">
+                      {{'TESTI_THREE' | translate}}
+                      <!-- The ideas conceived by a society have profound
+                      repercussions on what actions the society performs.
+                      Philosophy yields applications such as those in ethics –
+                      applied ethics in particular – and political philosophy. -->
+                    </div>
+                    <div class="block-reviews__item-meta">
+                      <div class="block-reviews__item-rating">
+                        <div class="rating">
+                          <div class="rating__body">
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div
+                              class="rating__star rating__star--active"
+                            ></div>
+                            <div class="rating__star"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="block-reviews__item-author">
+                        {{'TESTI_THREE_NAME' | translate}}
+                        <!-- Jeff Kowalski, CEO Stroyka -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+      </div>
+      <!-- site__body / end -->
+     
+    </div>
+    <!-- site / end -->
+     <!-- photoswipe -->
+ <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button
+          class="pswp__button pswp__button--close"
+          title="Close (Esc)"
+        ></button>
+        <!--<button class="pswp__button pswp__button&#45;&#45;share" title="Share"></button>-->
+        <button
+          class="pswp__button pswp__button--fs"
+          title="Toggle fullscreen"
+        ></button>
+        <button
+          class="pswp__button pswp__button--zoom"
+          title="Zoom in/out"
+        ></button>
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"
+      >
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button
+        class="pswp__button pswp__button--arrow--left"
+        title="Previous (arrow left)"
+      ></button>
+      <button
+        class="pswp__button pswp__button--arrow--right"
+        title="Next (arrow right)"
+      ></button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- photoswipe / end -->
+<!-- scripts -->
+<!-- <script src="public/assets/vendor/jquery/jquery.min.js"></script>
+<script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="public/assets/vendor/owl-carousel/owl.carousel.min.js"></script>
+<script src="public/assets/vendor/nouislider/nouislider.min.js"></script>
+<script src="public/assets/vendor/photoswipe/photoswipe.min.js"></script>
+<script src="public/assets/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+<script src="public/assets/vendor/select2/js/select2.min.js"></script>
+<script src="public/assets/js/number.js"></script> -->
+<script src="public/assets/js/main.js"></script>

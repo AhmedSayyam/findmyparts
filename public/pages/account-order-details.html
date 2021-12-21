@@ -1,0 +1,188 @@
+
+    <!-- site -->
+    <div class="site">
+      
+        <!-- site__body -->
+        <div class="site__body">
+            <div class="block-space block-space--layout--after-header"></div>
+            <div class="block">
+                <div class="container container--max--xl">
+                    <div class="row">
+                        <div class="col-12 col-lg-3 d-flex">
+                            <div class="account-nav flex-grow-1">
+                                <h4 class="account-nav__title">
+                                    {{'NAVIGATION' | translate}}
+                                    <!-- Navigation -->
+                                </h4>
+                                <ul class="account-nav__list">
+                                    <li class="account-nav__item ">
+                                      <a href="#!dashboard">
+                                          {{'DASHBOARD' | translate}}
+                                        <!-- Dashboard -->
+                                    </a>
+                                    </li>
+                                    <!-- <li class="account-nav__item">
+                                      <a href="#!garage">Garage</a>
+                                    </li> -->
+                                    <li class="account-nav__item account-nav__item--active">
+                                      <a href="#!orders">
+                                          {{'ORDER_HISTORY' | translate}}
+                                        <!-- Order History -->
+                                    </a>
+                                    </li>
+                                    <li class="account-nav__item">
+                                      <a href="#!profile">
+                                          {{'EDIT_PROFILE' | translate}}
+                                        <!-- Edit Profile -->
+                                    </a>
+                                    </li>
+                                    
+                                    <!-- <li class="account-nav__item">
+                                      <a href="#!order-details">Order Details</a>
+                                    </li>
+                                    <li class="account-nav__item">
+                                      <a href="#!account-address">Addresses</a>
+                                    </li>
+                                    <li class="account-nav__item">
+                                      <a href="#!edit-address">Edit Address</a>
+                                    </li> -->
+                                    <li class="account-nav__item">
+                                      <a href="#!password">
+                                          {{'PASSWORD' | translate}}
+                                        <!-- Password -->
+                                    </a>
+                                    </li>
+                                    <li class="account-nav__divider" role="presentation"></li>
+                                    <li class="account-nav__item">
+                                      <a href="#!login">
+                                        {{'LOGOUT' | translate}}      
+                                        <!-- Logout -->
+                                    </a>
+                                    </li>
+                                  </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 mt-4 mt-lg-0">
+                            <div class="card">
+                                <div class="order-header">
+                                    <div class="order-header__actions">
+                                        <a href="#!orders" class="btn btn-xs btn-secondary">
+                                            {{'BACK_TO_LIST' | translate}}
+                                            <!-- Back to list -->
+                                        </a>
+                                    </div>
+                                    <h5 class="order-header__title">#{{order_number}}</h5>
+                                    <div class="order-header__subtitle">
+                                        {{'PLACED_ON' | translate}}
+                                        <!-- Was placed on  -->
+                                        <mark>{{created_on}}</mark>.
+                                    </div>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-table">
+                                    <div class="table-responsive-sm">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        {{'PRODUCT' | translate}}    
+                                                        <!-- Product -->
+                                                    </th>
+                                                    <th>
+                                                        {{'TOTAL' | translate}}
+                                                        <!-- Total -->
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="card-table__body card-table__body--merge-rows">
+                                                <tr ng-repeat="otd in order_detail_data">
+                                                    <td>{{otd.product_name}} x ({{otd.quantity}})</td>
+                                                    <td>{{getRate(otd.sub_total) | currency:to_currency:2 }}</td>
+                                                </tr>
+                                            </tbody>
+                                            <!-- <tbody class="card-table__body card-table__body--merge-rows">
+                                                <tr>
+                                                    <th>Subtotal</th>
+                                                    <td>$1309.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Shipping</th>
+                                                    <td>$25.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tax</th>
+                                                    <td>$262.00</td>
+                                                </tr>
+                                            </tbody> -->
+                                            <tfoot>
+                                                <tr>
+                                                    <th>
+                                                        {{'TOTAL' | translate}}
+                                                        <!-- Total -->
+                                                    </th>
+                                                    <td>{{getRate(order_total_amount.total_amount) | currency:to_currency:2 }}</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row mt-3 no-gutters mx-n2">
+                                <div class="col-sm-6 col-12 px-2">
+                                    <div class="card address-card address-card--featured">
+                                        <div class="address-card__badge tag-badge tag-badge--theme">
+                                            Shipping Address
+                                        </div>
+                                        <div class="address-card__body">
+                                            <div class="address-card__name">Ryan Ford</div>
+                                            <div class="address-card__row">
+                                                Random Federation<br>
+                                                115302, Moscow<br>
+                                                ul. Varshavskaya, 15-2-178
+                                            </div>
+                                            <div class="address-card__row">
+                                                <div class="address-card__row-title">Phone Number</div>
+                                                <div class="address-card__row-content">38 972 588-42-36</div>
+                                            </div>
+                                            <div class="address-card__row">
+                                                <div class="address-card__row-title">Email Address</div>
+                                                <div class="address-card__row-content">stroyka@example.com</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-12 px-2 mt-sm-0 mt-3">
+                                    <div class="card address-card address-card--featured">
+                                        <div class="address-card__badge tag-badge tag-badge--theme">
+                                            Billing Address
+                                        </div>
+                                        <div class="address-card__body">
+                                            <div class="address-card__name">Ryan Ford</div>
+                                            <div class="address-card__row">
+                                                Random Federation<br>
+                                                115302, Moscow<br>
+                                                ul. Varshavskaya, 15-2-178
+                                            </div>
+                                            <div class="address-card__row">
+                                                <div class="address-card__row-title">Phone Number</div>
+                                                <div class="address-card__row-content">38 972 588-42-36</div>
+                                            </div>
+                                            <div class="address-card__row">
+                                                <div class="address-card__row-title">Email Address</div>
+                                                <div class="address-card__row-content">stroyka@example.com</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-space block-space--layout--before-footer"></div>
+        </div>
+        <!-- site__body / end -->
+      
+    </div>
+    <!-- site / end -->
+   

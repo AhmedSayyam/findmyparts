@@ -1,0 +1,673 @@
+
+  
+      <!-- site__body -->
+      <div class="site__body">
+        <div
+          class="
+            block-header block-header--has-breadcrumb block-header--has-title
+          "
+        >
+          <div class="container">
+            <div class="block-header__body">
+              <nav
+                class="breadcrumb block-header__breadcrumb"
+                aria-label="breadcrumb"
+              >
+                <ol class="breadcrumb__list">
+                  <li
+                    class="breadcrumb__spaceship-safe-area"
+                    role="presentation"
+                  ></li>
+                  <li
+                    class="
+                      breadcrumb__item
+                      breadcrumb__item--parent
+                      breadcrumb__item--first
+                    "
+                  >
+                    <a href="#!home" class="breadcrumb__item-link"> {{'HOME' | translate}}</a>
+                  </li>
+                 
+                  <li
+                    class="
+                      breadcrumb__item
+                      breadcrumb__item--current
+                      breadcrumb__item--last
+                    "
+                    aria-current="page"
+                  >
+                    <span class="breadcrumb__item-link"> {{'CHECKOUT' | translate}}</span>
+                  </li>
+                  <li
+                    class="breadcrumb__title-safe-area"
+                    role="presentation"
+                  ></li>
+                </ol>
+              </nav>
+              <h1 class="block-header__title">
+                {{'CHECKOUT' | translate}}
+                <!-- Checkout -->
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="checkout block">
+          <div class="container container--max--xl">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <div class="alert alert-lg alert-primary">
+                  {{'RETURNING_CUSTOMER' | translate}}?
+                  <!-- Returning customer? -->
+                   <a href="#!login">
+                    {{'HERE_LOGIN' | translate}} 
+                    <!-- Click here to login -->
+                  </a>
+                </div>
+              </div>
+              
+              <div class="col-12 col-lg-6 col-xl-7">
+                <div class="card mb-lg-0">
+                  <form name="checkoutForm" novalidate>
+                    <div class="card-body card-body--padding--2">
+                      <h3 class="card-title">
+                        {{'BILLING_DETAIL' | translate}}
+                        <!-- Billing details -->
+                      </h3>
+                     
+                        <div class="form-group">
+                          <label for="checkout-first-name">
+                            {{'FULLNAME' | translate}}
+                            <!-- Full Name -->
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="checkout-full-name"
+                            name="checkout_full_name"
+                            pattern="^[a-z A-Z]*$" required="required"
+                            placeholder="{{'FULLNAME' | translate}}"
+                            ng-model="ng_name"
+                          />
+                          <div ng-show="checkoutForm.checkout_full_name.$dirty && checkoutForm.checkout_full_name.$invalid">
+                            <small class="text-danger" ng-show="checkoutForm.checkout_full_name.$invalid">
+                            {{'ONLY_CHARACTERS' | translate}}
+                              <!-- Only characters are allowed -->
+                            </small>  <br>
+                            <small class="text-danger" ng-show="checkoutForm.checkout_full_name.$error.required">
+                              <!-- Required* -->
+                              {{'REQUIRED' | translate}}
+                            </small>
+                          </div>
+                        </div>
+                        
+                  
+                      <!-- <div class="form-group">
+                        <label for="checkout-company-name"
+                          >Company Name
+                          <span class="text-muted">(Optional)</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="checkout-company-name"
+                          placeholder="Company Name"
+                          name="checkout_company_name"
+                          pattern="^[a-z A-Z]*$" required="required"
+                          ng-model="ng_cname"
+                        />
+                        <div ng-show="checkoutForm.checkout_company_name.$dirty && checkoutForm.checkout_company_name.$invalid">
+                          <small class="text-danger" ng-show="checkoutForm.checkout_company_name.$invalid">
+                            Only characters are allowed</small>  <br>
+                          <small class="text-danger" ng-show="checkoutForm.checkout_company_name.$error.required">
+                            Required*
+                          </small>
+                        </div>
+                      </div> -->
+                      <div class="form-group">
+                        <label for="checkout-country">
+                          {{'COUNTRY' | translate}}
+                          <!-- Country -->
+                        </label>
+                        <select
+                          id="checkout-country"
+                          class="form-control form-control-select2"
+                          ng-model="ng_country" name="checkout_country" required
+                        >
+                        <option value="">
+                          {{'SELECT_CON' | translate}}
+                          <!-- Select country... -->
+                        </option>
+                        <option value="dubai">
+                          {{'DUBAI' | translate}}
+                          <!-- Dubai -->
+                        </option>
+                        <option value="qatar">
+                          {{'QATAR' | translate}}
+                          <!-- Qatar -->
+                        </option>
+                        <option value="saudi arabia">
+                          {{'SAUDIA' | translate}}  
+                          <!-- Saudi Arabia -->
+                        </option>
+                        <option value="usa">
+                          {{'USA' | translate}}
+                          <!-- United States -->
+                        </option>
+                        <option value="russia">
+                          {{'RUSSIA' | translate}}  
+                          <!-- Russia -->
+                        </option>
+                        <option value="italy">
+                          {{'ITALY' | translate}}  
+                          <!-- Italy -->
+                        </option>
+                        <option value="france">
+                          {{'FRANCE' | translate}}  
+                          <!-- France -->
+                        </option>
+                        <option value="ukarime">
+                          {{'UKARINE' | translate}}  
+                          <!-- Ukraine -->
+                        </option>
+                        <option value="germany">
+                          {{'GERMANY' | translate}}  
+                          <!-- Germany -->
+                        </option>
+                        <option value="australia">
+                          {{'AUSTRALIA' | translate}}  
+                          <!-- Australia -->
+                        </option>
+                        </select>
+                        <div class="form-group" data-ng-show="checkoutForm.checkout_country.$dirty && checkoutForm.checkout_country.$invalid">
+                          <small class="text-danger" ng-show="checkoutForm.checkout_country.$error.required">
+                            <!-- Required* -->
+                            {{'VALID_CHOICE' | translate}}
+                          </small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="checkout-street-address"
+                          >
+                          {{'STREET_ADDRESS' | translate}}
+                          <!-- Street Address -->
+                          </label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="checkout-street-address"
+                          placeholder="{{'STREET_ADDRESS' | translate}}"
+                          name="checkout_address"
+                          required="required"
+                          ng-model="ng_address"
+                        />
+                        <div ng-show="checkoutForm.checkout_address.$dirty">
+                          <small class="text-danger" ng-show="checkoutForm.checkout_address.$error.required">
+                            {{'REQUIRED' | translate}}
+                            <!-- Required* -->
+                          </small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="checkout-city">
+                          {{'CITY' | translate}}
+                          <!-- City -->
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="checkout-city"
+                          placeholder="{{'CITY' | translate}}"
+                          name="checkout_city"
+                          pattern="^[a-z A-Z]*$" required="required"
+                          ng-model="ng_city"
+                        />
+                        <div ng-show="checkoutForm.checkout_city.$dirty && checkoutForm.checkout_city.$invalid">
+                          <small class="text-danger" ng-show="checkoutForm.checkout_city.$invalid">
+                            {{'ONLY_CHARACTERS' | translate}}
+                            <!-- Only characters are allowed -->
+                          </small>  <br>
+                          <small class="text-danger" ng-show="checkoutForm.checkout_city.$error.required">
+                          {{'REQUIRED' | translate}}
+                            <!-- Required* -->
+                          </small>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="checkout-postcode">
+                          {{'POSTCODE' | translate}}
+                          <!-- Post code -->
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="checkout-postcode"
+                          placeholder="{{'POSTCODE' | translate}}"
+                          name="checkout_postcode"
+                          required="required" pattern="^[0-9]*$"
+                          ng-model="ng_postcode"
+                        />
+                        <div ng-show="checkoutForm.checkout_postcode.$dirty && checkoutForm.checkout_postcode.$invalid">
+                          <small class="text-danger" ng-show="checkoutForm.checkout_postcode.$invalid">
+                            {{'ONLY_DIGITS' | translate}}
+                            <!-- Only digits are allowed -->
+                          </small>  <br>
+                          <small class="text-danger" ng-show="checkoutForm.checkout_postcode.$error.required">
+                          {{'REQUIRED' | translate}}
+                            <!-- Required* -->
+                          </small>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="checkout-email">
+                            {{'EMAIL' | translate}}
+                            <!-- Email -->
+                          </label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="checkout-email"
+                            placeholder="{{'EMAIL' | translate}}"
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required="required"
+                            name="checkout_email"
+                            ng-model="ng_mail"
+                          />
+                          <div ng-show="checkoutForm.checkout_email.$dirty && checkoutForm.checkout_email.$invalid">
+                            <small class="text-danger" ng-show="checkoutForm.checkout_email.$invalid">
+                            {{'INVALID_FORMAT' | translate}}
+                              <!-- Invalid Format! -->
+                            </small> <br>
+                            <small class="text-danger" ng-show="checkoutForm.checkout_email.$error.required">
+                              {{'REQUIRED' | translate}}
+                              <!-- Required. -->
+                            </small>
+                          </div>
+                          <div ng-show="email_found">
+                            <small class="text-danger">
+                              {{'ALREADY_ACCOUNT' | translate}}
+                              <!-- Account already exist. Please Login to continue shopping! -->
+                            </small>
+                          </div>
+                          <div ng-show="email_not_found">
+                            <small class="text-success">
+                              {{'WELCOME' | translate}}
+                              <!-- Welcome Guest. -->
+                            </small>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="checkout-phone">
+                            {{'PHONE' | translate}}
+                            <!-- Phone -->
+                          </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="checkout-phone"
+                            placeholder="{{'PHONE' | translate}}"
+                            maxlength="11" required="required" pattern="^[0-9]*$"
+                            name="checkout_phone"
+                            ng-model="ng_phone"
+                          />
+                          <div ng-show="checkoutForm.checkout_phone.$dirty && checkoutForm.checkout_phone.$invalid">
+                            <small class="text-danger" ng-show="checkoutForm.checkout_phone.$invalid">
+                              {{'MAX_DIGITS' | translate}}
+                              <!-- Maximun 11 digits allowed! -->
+                            </small> <br>
+                            <small class="text-danger" ng-show="checkoutForm.checkout_phone.$error.required">
+                              {{'REQUIRED' | translate}}
+                              <!-- Required. -->
+                            </small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="checkout-comment"
+                          >
+                          {{'ORDER_NOTES' | translate}}
+                          <span class="text-muted">
+                            {{'OPTIONAL' | translate}}
+                            <!-- (Optional) -->
+                          </span>
+                        </label>
+                        <textarea
+                          id="checkout-comment"
+                          class="form-control"
+                          rows="4"
+                          placeholder="{{'ORDER_NOTES' | translate}}"
+                          name="checkout_detail"
+                          ng-model="ng_detail"
+                        ></textarea>
+                      </div>
+                      <!-- <div class="form-group">
+                        <div class="form-check">
+                          <span class="input-check form-check-input">
+                            <span class="input-check__body">
+                              <input
+                                class="input-check__input"
+                                type="checkbox"
+                                id="checkout-create-account"
+                                
+                              />
+                              <span class="input-check__box"></span>
+                              <span class="input-check__icon"
+                                ><svg width="9px" height="7px">
+                                  <path
+                                    d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <label
+                            class="form-check-label"
+                            for="checkout-create-account"
+                            >Create an account?</label
+                          >
+                        </div>
+                      </div> -->
+                    </div>
+                  </form>
+                  <div class="card-divider"></div>
+                  <div class="card-body card-body--padding--2">
+                    <h3 class="card-title">
+                      {{'SHIPPING_DETAILS' | translate}}
+                      <!-- Shipping Details -->
+                    </h3>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <span class="input-check form-check-input">
+                          <span class="input-check__body">
+                            <input
+                              class="input-check__input"
+                              type="checkbox"
+                              id="checkout-different-address"
+                            />
+                            <span class="input-check__box"></span>
+                            <span class="input-check__icon"
+                              ><svg width="9px" height="7px">
+                                <path
+                                  d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                        <label
+                          class="form-check-label"
+                          for="checkout-different-address"
+                          >
+                          {{'DIFFERENT_ADDRESS' | translate}}?
+                          <!-- Ship to a different address? -->
+                          </label
+                        >
+                      </div>
+                    </div>
+                    <div class="form-group" id="ship-box">
+                      <!-- <label for="checkout-ship"
+                        >Shipping <Address></Address>
+                        <span class="text-muted">(Optional)</span></label
+                      > -->
+                      <textarea
+                        id="checkout-ship"
+                        class="form-control"
+                        rows="4"
+                        placeholder="{{'DIFFERENT_ADDRESS' | translate}}"
+                        name="checkout_ship"
+                        ng-model="ng_ship"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+                <div class="card mb-0">
+                  <div class="card-body card-body--padding--2">
+                    <h3 class="card-title">
+                      {{'YOUR_ORDER' | translate}}
+                      <!-- Your Order -->
+                    </h3>
+                    <table class="checkout__totals">
+                      <thead class="checkout__totals-header">
+                        <tr>
+                          <th>
+                            {{'PRODUCT' | translate}}
+                            <!-- Product -->
+                          </th>
+                          <th>
+                            {{'TOTAL' | translate}}
+                            <!-- Total -->
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="checkout__totals-products">
+                        <tr ng-repeat="pa in product_array">
+                          <td>{{pa.product_name}}</td>
+                          <td>{{getRate(pa.sub_total) | currency:to_currency:2 }}</td>
+                        </tr>
+                      </tbody>
+                      <tbody class="checkout__totals-subtotals">
+                        <tr>
+                          <th>
+                            {{'SUBTOTAL' | translate}}
+                            <!-- Subtotal -->
+                          </th>
+                          <td>{{getRate(a_total) | currency:to_currency:2 }}</td>
+                        </tr>
+                        <tr>
+                          <th>
+                            {{'TAX' | translate}}
+                            <!-- Tax -->
+                          </th>
+                          <td>{{getRate(tax) | currency:to_currency:2 }}</td>
+                        </tr>
+                        <tr>
+                          <th>
+                            {{'SHIPPING' | translate}}
+                            <!-- Shipping -->
+                            
+                          </th>
+                          <td>{{getRate(shipping) | currency:to_currency:2 }}</td>
+                        </tr>
+                      </tbody>
+                      <tfoot class="checkout__totals-footer">
+                        <tr>
+                          <th>
+                            {{'TOTAL' | translate}}
+                            <!-- Total -->
+                          </th>
+                          <td>{{getRate(a_total + tax + shipping) | currency:to_currency:2 }}</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <!-- <div class="checkout__payment-methods payment-methods">
+                      <ul class="payment-methods__list">
+                        <li
+                          class="
+                            payment-methods__item payment-methods__item--active
+                          "
+                        >
+                          <label class="payment-methods__item-header">
+                            <span
+                              class="payment-methods__item-radio input-radio"
+                            >
+                              <span class="input-radio__body">
+                                <input
+                                  class="input-radio__input"
+                                  name="checkout_payment_method"
+                                  type="radio"
+                                  checked
+                                />
+                                <span class="input-radio__circle"></span>
+                              </span>
+                            </span>
+                            <span class="payment-methods__item-title"
+                              >Direct bank transfer</span
+                            >
+                          </label>
+                          <div class="payment-methods__item-container">
+                            <div
+                              class="payment-methods__item-details text-muted"
+                            >
+                              Make your payment directly into our bank account.
+                              Please use your Order ID as the payment reference.
+                              Your order will not be shipped until the funds
+                              have cleared in our account.
+                            </div>
+                          </div>
+                        </li>
+                        <li class="payment-methods__item">
+                          <label class="payment-methods__item-header">
+                            <span
+                              class="payment-methods__item-radio input-radio"
+                            >
+                              <span class="input-radio__body">
+                                <input
+                                  class="input-radio__input"
+                                  name="checkout_payment_method"
+                                  type="radio"
+                                />
+                                <span class="input-radio__circle"></span>
+                              </span>
+                            </span>
+                            <span class="payment-methods__item-title"
+                              >Check payments</span
+                            >
+                          </label>
+                          <div class="payment-methods__item-container">
+                            <div
+                              class="payment-methods__item-details text-muted"
+                            >
+                              Please send a check to Store Name, Store Street,
+                              Store Town, Store State / County, Store Postcode.
+                            </div>
+                          </div>
+                        </li>
+                        <li class="payment-methods__item">
+                          <label class="payment-methods__item-header">
+                            <span
+                              class="payment-methods__item-radio input-radio"
+                            >
+                              <span class="input-radio__body">
+                                <input
+                                  class="input-radio__input"
+                                  name="checkout_payment_method"
+                                  type="radio"
+                                />
+                                <span class="input-radio__circle"></span>
+                              </span>
+                            </span>
+                            <span class="payment-methods__item-title"
+                              >Cash on delivery</span
+                            >
+                          </label>
+                          <div class="payment-methods__item-container">
+                            <div
+                              class="payment-methods__item-details text-muted"
+                            >
+                              Pay with cash upon delivery.
+                            </div>
+                          </div>
+                        </li>
+                        <li class="payment-methods__item">
+                          <label class="payment-methods__item-header">
+                            <span
+                              class="payment-methods__item-radio input-radio"
+                            >
+                              <span class="input-radio__body">
+                                <input
+                                  class="input-radio__input"
+                                  name="checkout_payment_method"
+                                  type="radio"
+                                />
+                                <span class="input-radio__circle"></span>
+                              </span>
+                            </span>
+                            <span class="payment-methods__item-title"
+                              >PayPal</span
+                            >
+                          </label>
+                          <div class="payment-methods__item-container">
+                            <div
+                              class="payment-methods__item-details text-muted"
+                            >
+                              Pay via PayPal; you can pay with your credit card
+                              if you don’t have a PayPal account.
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div> -->
+                    <div class="checkout__agree form-group">
+                      <div class="form-check">
+                        <span class="input-check form-check-input">
+                          <span class="input-check__body">
+                            <input
+                              class="input-check__input"
+                              type="checkbox"
+                              id="checkout-terms"
+                              value="false"
+                              name="checkout_terms"
+                              ng-model="ng_terms"
+                            />
+                            <span class="input-check__box"></span>
+                            <span class="input-check__icon"
+                              ><svg width="9px" height="7px">
+                                <path
+                                  d="M9,1.395L3.46,7L0,3.5L1.383,2.095L3.46,4.2L7.617,0L9,1.395Z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                        <label class="form-check-label" for="checkout-terms">
+                          {{'READ_AGREE' | translate}}
+                          <!-- I have read and agree to the website -->
+                          <a href="#!terms"
+                            >
+                            {{'TERMS' | translate}}
+                            <!-- Terms and Conditions -->
+                            </a
+                          >
+                        </label>
+                      </div>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-xl btn-block"
+                      ng-disabled="checkoutForm.$invalid || ng_name=='' || ng_country=='' || ng_address=='' || ng_city=='' || ng_postcode=='' || ng_mail=='' || ng_phone=='' || !ng_terms || a_total==0"
+                      ng-click="checkout()"
+                    >
+                    {{'PLACE_ORDER' | translate}}
+                      <!-- Place Order -->
+                    </button>
+                  </div>
+                  <div class="col-12 mb-2 text-center" id="checkout_spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">
+                        {{'LOADING' | translate}}
+                        <!-- Loading... -->
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-2" ng-show="no_product">
+                    <div class="alert alert-danger" role="alert" >
+                      <i class="fa fa-exclamation-circle text-danger mx-2"></i>
+                      {{'SELECT_MINIMUM' | translate}}
+                      <!-- Please select minimum 1 product!!!!! -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+      </div>
+      <!-- site__body / end -->
+<script>
+   $(function () {
+        $('.form-control-select2').select2({width: ''});
+    });
+</script>

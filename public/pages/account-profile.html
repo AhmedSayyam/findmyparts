@@ -1,0 +1,324 @@
+
+        <!-- site__body -->
+        <div class="site__body">
+            <div class="block-space block-space--layout--after-header"></div>
+            <div class="block">
+                <div class="container container--max--xl">
+                    <div class="row">
+                        <div class="col-12 col-lg-3 d-flex">
+                            <div class="account-nav flex-grow-1">
+                                <h4 class="account-nav__title">
+                                  {{'NAVIGATION' | translate}}
+                                  <!-- Navigation -->
+                                </h4>
+                                <ul class="account-nav__list">
+                                  <li class="account-nav__item ">
+                                    <a href="#!dashboard">
+                                      {{'DASHBOARD' | translate}}
+                                      <!-- Dashboard -->
+                                    </a>
+                                  </li>
+                                  <!-- <li class="account-nav__item">
+                                    <a href="#!garage">Garage</a>
+                                  </li> -->
+                                  <li class="account-nav__item">
+                                    <a href="#!orders">
+                                      {{'ORDER_HISTORY' | translate}}
+                                      <!-- Order History -->
+                                    </a>
+                                  </li>
+                                  <li class="account-nav__item account-nav__item--active">
+                                    <a href="#!profile">
+                                      {{'EDIT_PROFILE' | translate}}
+                                      <!-- Edit Profile -->
+                                    </a>
+                                  </li>
+                                  
+                                  <!-- <li class="account-nav__item">
+                                    <a href="#!order-details">Order Details</a>
+                                  </li> -->
+                                  <li class="account-nav__item">
+                                    <a href="#!account-address">
+                                      {{'SHIPPING_ADDRESS' | translate}}
+                                      <!-- Shipping Address -->
+                                    </a>
+                                  </li>
+                                  <!-- <li class="account-nav__item">
+                                    <a href="#!edit-address">Edit Address</a>
+                                  </li> -->
+                                  <li class="account-nav__item">
+                                    <a href="#!password">
+                                      {{'PASSWORD' | translate}}
+                                      <!-- Password -->
+                                    </a>
+                                  </li>
+                                  <li class="account-nav__divider" role="presentation"></li>
+                                  <li class="account-nav__item">
+                                    <a href="#!logout">
+                                      {{'LOGOUT' | translate}}
+                                      <!-- Logout -->
+                                    </a>
+                                  </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 mt-4 mt-lg-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>
+                                      {{'EDIT_PROFILE' | translate}}
+                                      <!-- Edit Profile -->
+                                    </h5>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-body card-body--padding--2">
+                                  <form name="profileForm" novalidate>
+                                    <div class="row no-gutters">
+                                        <div class="col-12 col-lg-7 col-xl-6">
+                                            <div class="form-group">
+                                                <label for="profile-first-name">
+                                                  {{'FULLNAME' | translate}}
+                                                  <!-- Full Name -->
+                                                </label>
+                                                <input type="text" class="form-control" 
+                                                id="profile-first-name" 
+                                                placeholder="{{'FULLNAME' | translate}}"
+                                                name="profile_name"
+                                                pattern="^[a-z A-Z]*$" required="required"
+                                                ng-model="ng_myname">
+                                                <div ng-show="profileForm.profile_name.$dirty && profileForm.profile_name.$invalid">
+                                                  <small class="text-danger" ng-show="profileForm.profile_name.$invalid">
+                                                  {{'ONLY_CHARACTERS' | translate}} 
+                                                    <!-- Only characters are allowed -->
+                                                  </small>  <br>
+                                                  <small class="text-danger" ng-show="profileForm.profile_name.$error.required">
+                                                    <!-- Required* -->
+                                                    {{'REQUIRED' | translate}}
+                                                  </small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="profile-email">
+                                                  {{'EMAIL' | translate}}
+                                                  <!-- Email Address -->
+                                                </label>
+                                                <input type="email" class="form-control" 
+                                                id="profile-email" 
+                                                placeholder="{{'EMAIL' | translate}}"
+                                                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" 
+                                                required="required"
+                                                name="profilet_email"
+                                                ng-model="ng_mymail">
+                                                <div ng-show="profileForm.profilet_email.$dirty && profileForm.profilet_email.$invalid">
+                                                  <small class="text-danger" ng-show="profileForm.profilet_email.$invalid">
+                                                    {{'INVALID_FORMAT' | translate}}
+                                                    <!-- Invalid Format! -->
+                                                  </small> <br>
+                                                  <small class="text-danger" ng-show="profileForm.profilet_email.$error.required">
+                                                    {{'REQUIRED' | translate}}
+                                                    <!-- Required. -->
+                                                  </small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="profile-country">
+                                                {{'COUNTRY' | translate}}
+                                                <!-- Country -->
+                                              </label>
+                                              <select
+                                                id="profile-country"
+                                                class="form-control form-control-select2"
+                                                ng-model="ng_mycountry" name="profile_country"
+                                              >
+                                                <option value="">
+                                                  {{'SELECT_CON' | translate}}
+                                                  <!-- Select country... -->
+                                                </option>
+                                                <option value="dubai">
+                                                  {{'DUBAI' | translate}}
+                                                  <!-- Dubai -->
+                                                </option>
+                                                <option value="qatar">
+                                                  {{'QATAR' | translate}}
+                                                  <!-- Qatar -->
+                                                </option>
+                                                <option value="saudi arabia">
+                                                  {{'SAUDIA' | translate}}  
+                                                  <!-- Saudi Arabia -->
+                                                </option>
+                                                <option value="usa">
+                                                  {{'USA' | translate}}
+                                                  <!-- United States -->
+                                                </option>
+                                                <option value="russia">
+                                                  {{'RUSSIA' | translate}}  
+                                                  <!-- Russia -->
+                                                </option>
+                                                <option value="italy">
+                                                  {{'ITALY' | translate}}  
+                                                  <!-- Italy -->
+                                                </option>
+                                                <option value="france">
+                                                  {{'FRANCE' | translate}}  
+                                                  <!-- France -->
+                                                </option>
+                                                <option value="ukarime">
+                                                  {{'UKARINE' | translate}}  
+                                                  <!-- Ukraine -->
+                                                </option>
+                                                <option value="germany">
+                                                  {{'GERMANY' | translate}}  
+                                                  <!-- Germany -->
+                                                </option>
+                                                <option value="australia">
+                                                  {{'AUSTRALIA' | translate}}  
+                                                  <!-- Australia -->
+                                                </option>
+                                              </select>
+                                              <div class="form-group" data-ng-show="profileForm.profile_country.$dirty && ng_country == 0">
+                                                <p class="text-danger"> 
+                                                  {{'VALID_CHOICE' | translate}}
+                                                  <!-- Plz make a valid choice ! -->
+                                                 </p>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="profile-street-address"
+                                                >
+                                                {{'STREET_ADDRESS' | translate}}
+                                                <!-- Street Address -->
+                                                </label
+                                              >
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                id="profile-street-address"
+                                                placeholder="{{'STREET_ADDRESS' | translate}}"
+                                                name="profile_address"
+                                                required="required"
+                                                ng-model="ng_myaddress"
+                                              />
+                                              <div ng-show="profileForm.profile_address.$dirty">
+                                                <small class="text-danger" ng-show="profileForm.profile_address.$error.required">
+                                                  
+                                                  {{'REQUIRED' | translate}}
+                                                  <!-- Required* -->
+                                                </small>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="profile-city">
+                                                {{'CITY' | translate}}
+                                                <!-- City -->
+                                              </label>
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                id="profile-city"
+                                                name="profile_city"
+                                                placeholder="{{'CITY' | translate}}"
+                                                pattern="^[a-z A-Z]*$" required="required"
+                                                ng-model="ng_mycity"
+                                              />
+                                              <div ng-show="profileForm.profile_city.$dirty && profileForm.profile_city.$invalid">
+                                                <small class="text-danger" ng-show="profileForm.profile_city.$invalid">
+                                                  
+                                                  {{'ONLY_CHARACTERS' | translate}}
+                                                  <!-- Only characters are allowed -->
+                                                </small>  <br>
+                                                <small class="text-danger" ng-show="profileForm.profile_city.$error.required">
+                                                {{'REQUIRED' | translate}}
+                                                  <!-- Required* -->
+                                                </small>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="profile-postcode">
+                                                {{'POSTCODE' | translate}}
+                                                <!-- Post code -->
+                                              </label>
+                                              <input
+                                                type="text"
+                                                class="form-control"
+                                                id="profile-postcode"
+                                                placeholder="{{'POSTCODE' | translate}}"
+                                                name="profile_postcode"
+                                                required="required" pattern="^[0-9]*$"
+                                                ng-model="ng_mypostcode"
+                                              />
+                                              <div ng-show="profileForm.profile_postcode.$dirty && profileForm.profile_postcode.$invalid">
+                                                <small class="text-danger" ng-show="profileForm.profile_postcode.$invalid">
+                                                  {{'ONLY_DIGITS' | translate}}
+                                                  <!-- Only digits are allowed -->
+                                                </small>  <br>
+                                                <small class="text-danger" ng-show="profileForm.profile_postcode.$error.required">
+                                                {{'REQUIRED' | translate}}
+                                                  <!-- Required* -->
+                                                </small>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="profile-phone">
+                                                  {{'PHONE' | translate}}
+                                                  <!-- Phone Number -->
+                                                </label>
+                                                <input type="text" class="form-control" 
+                                                id="profile-phone" 
+                                                placeholder="Phone Number"
+                                                placeholder="{{'PHONE' | translate}}"
+                                                maxlength="11" required="required" pattern="^[0-9]*$"
+                                                name="profile_phone"
+                                                ng-model="ng_myphone">
+                                                <div ng-show="profileForm.profile_phone.$dirty && profileForm.profile_phone.$invalid">
+                                                  <small class="text-danger" ng-show="profileForm.profile_phone.$invalid">
+                                                {{'MAX_DIGITS' | translate}}
+                                                    <!-- Maximun 11 digits allowed! -->
+                                                  </small> <br>
+                                                  <small class="text-danger" ng-show="profileForm.profile_phone.$error.required">
+                                                    {{'REQUIRED' | translate}}
+                                                    <!-- Required. -->
+                                                  </small>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-0">
+                                                <button class="btn btn-primary mt-3"
+                                                ng-disabled="profileForm.$invalid "
+                                                ng-click="update()">
+                                                {{'SAVE' | translate}}
+                                                <!-- Save -->
+                                              </button>
+                                            </div>
+                                            <div class="my-2" ng-show="update_flag">
+                                              <div class="alert alert-success" role="alert" >
+                                                <i class="fa fa-check-circle text-success mx-2"></i>
+                                                {{'PROFILE_UPDATED' | translate}} 
+                                                <!-- Your profile has been updated successfully! -->
+                                              </div>
+                                            </div>
+                                            <div class="my-2" ng-show="no_changes">
+                                              <div class="alert alert-danger" role="alert" >
+                                                <i class="fa fa-exclamation-circle text-danger mx-2"></i>
+                                                {{'NOCHANGES' | translate}}
+                                                 <!-- No changes made! -->
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-space block-space--layout--before-footer"></div>
+        </div>
+        <!-- site__body / end -->
+        <script>
+          $(function () {
+           $('.form-control-select2').select2({width: ''});
+          });
+        </script>
+        
+    
+    

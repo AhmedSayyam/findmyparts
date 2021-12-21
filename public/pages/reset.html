@@ -1,0 +1,167 @@
+<div class="container my-5 py-5">
+    
+    <div class="row">
+        <div class="col-md-6 mx-auto shadow bg-light p-4">
+          <div>
+            <h3 class="text-center  pb-2">
+              {{'RESET' | translate}} {{'PASSWORD' | translate}}
+              <!-- Reset Password -->
+            </h3>
+        </div>
+            <form name="resetForm" novalidate>
+                  <div class="col-md-12 py-2">
+                    <label>
+                      {{'EMAIL' | translate}}
+                      <!-- Email address -->
+                    </label>
+                    <input
+                      id="reset-email"
+                      type="email"
+                      class="form-control form-control-sm"
+                      placeholder="{{'EMAIL' | translate}}"
+                      pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required="required"
+                        name="reset_email"
+                        ng-model="resetemail"
+                    />
+                    <div ng-show="resetForm.reset_email.$dirty && resetForm.reset_email.$invalid">
+                        <small class="text-danger" ng-show="resetForm.reset_email.$invalid">
+                        {{'INVALID_FORMAT' | translate}}
+                          <!-- Invalid Format! -->
+                        </small> <br>
+                        <small class="text-danger" ng-show="resetForm.reset_email.$error.required">
+                          {{'REQUIRED' | translate}}
+                          <!-- Required. -->
+                        </small>
+                    </div>
+                    
+                </div>
+                <div class="col-md-12 py-2">
+                    <label>
+                      {{'VERIFY_CODE' | translate}}
+                      <!-- Verification Code -->
+                    </label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="reset_otp"
+                            minlength="4" maxlength="4"
+                            pattern="^[0-9]*$" required="required"
+                            placeholder="4 digit code "
+                            ng-model="ng_otp"
+                          />
+                          <div ng-show="resetForm.reset_otp.$dirty && resetForm.reset_otp.$invalid">
+                            <small class="text-danger" ng-show="resetForm.reset_otp.$invalid">
+                              {{'MAX_DIGIT' | translate}}
+                              <!-- Only 4 digits are allowed -->
+                            </small>  <br>
+                            <small class="text-danger" ng-show="resetForm.reset_otp.$error.required">
+                            {{'REQUIRED' | translate}}
+                              <!-- Required* -->
+                            </small>
+                          </div>
+                </div>
+                <div class="col-md-12 py-2">
+                  <label>
+                    {{'NEW_PASS' | translate}}
+                    <!-- New Password -->
+                  </label>
+                    <div class="input-group">
+                      <input type="password" class="form-control" 
+                      id="pass" placeholder="{{'NEW_PASS' | translate}}"
+                      minlength="8"  maxlength="16" 
+                      ng-model="pass" name="pass"
+                      pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)[0-9a-zA-Z!@_#$%^&*()]*$">
+                      <div class="input-group-append border-none bg-light">
+                        <span class="input-group-text bg-white" onclick="myFunction()">
+                          <i class="fa fa-eye"></i>
+                        </span>
+                      </div>                        
+                    </div>
+                  </div>
+                  <div class="col-md-12 ">
+                    
+                      <span ng-show="resetForm.$submitted || resetForm.pass.$dirty">
+                        <small class="d-block text-danger" ng-show="resetForm.pass.$error.required">
+                          {{'PASS_REQUIRE' | translate}}
+                          <!-- Password Required* -->
+                        </small>
+                        <small class="d-block text-danger" ng-show="resetForm.pass.$error.pattern">
+                          {{'PASS_VALIDATION' | translate}}
+                          <!-- Password must contain at least one digit, one special character and one uppercase* -->
+                        </small>
+                        <small class="d-block text-danger" ng-show="((resetForm.pass.$error.minlength || resetForm.pass.$error.maxlength) && resetForm.pass.$dirty)">
+                          {{'PASS_LENGTH' | translate}}
+                          <!-- Password should be minimum be length of 8 -->
+                        </small>
+                      </span>
+                    
+                  </div>
+
+                  <div class="col-md-12 py-2">
+                    <label>
+                      {{'CONFIRM_PASS' | translate}}
+                      <!-- Confirm Password -->
+                    </label>
+                    <div class="input-group">
+                      <input type="password" class="form-control"
+                       id="re_pass" placeholder="{{'CONFIRM_PASS' | translate}}"
+                       minlength="8"  maxlength="16" name="re_pass"
+                       ng-model="re_pass" compare-to="pass">
+                      <div class="input-group-append">
+                        <span class="input-group-text bg-white" onclick="mySecondFunction()">
+                          <i class="fa fa-eye"></i>
+                        </span>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div>
+                      <small class="d-block text-danger" ng-show="resetForm.re_pass.$error.compareTo">  
+                        {{'PASS_MATCH' | translate}}
+                        <!-- Passwords don't match.   -->
+                      </small> 
+                    </div>    
+                  </div>
+                  <div class="col-md-12 py-2">                                        
+                    <div class="form-group mb-0">
+                      <button class="btn btn-block btn-primary mt-3" type="submit" 
+                      ng-disabled="resetForm.$invalid || resetForm.$pristine " 
+                      ng-click="reset_pass()">
+                    {{'RESET' | translate}}
+                      <!-- Reset -->
+                    </button>
+                    </div>
+                  </div>
+                  
+            </form>
+            <div class="text-center" ng-show="reset_msg"> 
+                <span class="text-success">
+                  {{'PASS_RESET' | translate}}
+                  <!-- Your password has been reset successfully. -->
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+          var pass = document.getElementById('pass');
+          var re_pass = document.getElementById('re_pass');
+          
+      
+          function myFunction() {
+            if (pass.type === "password") {
+              pass.type = "text";
+            } else {
+              pass.type = "password";
+            }
+          } 
+      
+          function mySecondFunction() {
+            if (re_pass.type === "password") {
+              re_pass.type = "text";
+            } else {
+              re_pass.type = "password";
+            }
+          } 
+      
+      </script>

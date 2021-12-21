@@ -1,0 +1,188 @@
+<style>
+    .product_card{
+        background-color: #ffffff;
+        border: 1px solid #ffffff;
+        margin: 0;
+    }
+    .product_card:hover{
+        cursor: pointer;
+        /* background-color: #f7f7f7; */
+        border: 1px solid #ffffff;
+        box-shadow: 2px 3px 10px grey;
+    }
+    .btn-block{
+    background-color: black;
+    border: 1px solid black;
+    color: #ffffff;
+    transition: 0.3s;
+  }
+  .btn-block:hover{
+    border: 1px solid #e52727;
+    background-color: #e52727;
+    color: #ffffff;
+  }
+</style>
+  <!-- site__body -->
+  <div class="site__body">
+      <div
+        class="
+          block-header block-header--has-breadcrumb block-header--has-title
+        "
+      >
+        <div class="container">
+          <div class="block-header__body">
+            <nav
+              class="breadcrumb block-header__breadcrumb"
+              aria-label="breadcrumb"
+            >
+              <ol class="breadcrumb__list">
+                <li
+                  class="breadcrumb__spaceship-safe-area"
+                  role="presentation"
+                ></li>
+                <li
+                  class="
+                    breadcrumb__item
+                    breadcrumb__item--parent
+                    breadcrumb__item--first
+                  "
+                >
+                  <a href="#!home" class="breadcrumb__item-link">Home</a>
+                </li>
+                <li class="breadcrumb__item breadcrumb__item--parent">
+                  <a href="" class="breadcrumb__item-link">Search</a>
+                </li>
+                <li
+                  class="
+                    breadcrumb__item
+                    breadcrumb__item--current
+                    breadcrumb__item--last
+                  "
+                  aria-current="page"
+                >
+                  <span class="breadcrumb__item-link">{{searching_part}}</span>
+                </li>
+                <li
+                  class="breadcrumb__title-safe-area"
+                  role="presentation"
+                ></li>
+              </ol>
+            </nav>
+            <h3 class="block-header__title">
+              Search results for ({{searching_part}})
+              <!-- Searched Parts -->
+            </h3>
+            
+          </div>
+        </div>
+      </div>
+      <div class="container py-2 ">
+        <div class="text-center" id="products-dimmer">
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark mx-2" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+            <!-- <div class="py-2" ng-show="no_data">
+              <h4 class="text-center">
+                {{'SELECT_MAKE_MODEL' | translate}}
+                 Please select make and model carefully..... 
+              </h4>
+            </div>
+            <div class="py-2" ng-if="search_products == '' ">
+              <h4 class="text-center">
+                {{'NO_PART' | translate}}
+                No Part Found 
+              </h4>
+            </div> -->
+            <div class="col-lg-10 mx-auto p-2 table-responsive">
+                <table class="table table-borderless table-hover shadow-sm">
+                    <thead class="table-light">
+                        <th>Type</th>
+                        <th>Part No.</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-show="no_product_found">
+                            <td colspan="5" class="text-center">
+                                <span class="text-danger">No Part Found</span>
+                            </td>
+                        </tr>
+                        <tr ng-repeat="search_prod in search_product">
+                            <td>{{ search_prod.type_label }}</td>
+                            <td>{{ search_prod.part_no }}</td>
+                            <td>{{ search_prod.product_name }}</td>
+                            <td>{{getRate(search_prod.price) | currency:to_currency:2  }}</td>
+                            <td>
+                                
+                                <a href="#!product-detail/part/{{search_prod.product_id}}/{{search_prod.category_id}}/{{search_prod.part_no}}">
+                                    Buy Now
+                                </a>
+                            </td>
+                        </tr>
+                        <tr ng-repeat="search_prod_old in search_product_old">
+                            <td>{{ search_prod_old.type_label }}</td>
+                            <td>{{ search_prod_old.part_no }}</td>
+                            <td>{{ search_prod_old.product_name }}</td>
+                            <td>{{getRate(search_prod_old.price) | currency:to_currency:2  }}</td>
+                            <td>
+                                <!--#!old-detail/part/{{sp.id}}/{{sp.part_no}}-->
+                                <a href="#!old-detail/part/{{search_prod_old.product_id}}/{{search_prod_old.part_no}}">
+                                    Buy Now
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          <!-- <div class="row">
+              <div class="col-md-3" dir-paginate="sp in search_products | itemsPerPage:20">
+                  <div class="card border-none border-light rounded my-2  p-2 product_card" >
+                      <a href="#!product-detail/{{sp.product_id}}/{{sp.category_id}}/{{sp.part_no}}">
+                      <div class="card-img">
+                        <span ng-if="sp.image1 != null">
+                          <img  ng-src="{{sp.image1}}" alt="" class="card-img-top" width="100%" height="200px"
+                          style="object-fit: cover;object-position: center;">
+                        </span>
+                        <span ng-if="sp.image1 == null">
+                          <img src="public/assets/images/default-2.jpg" alt="" class="card-img-top p-0" width="100%"
+                           height="200px" style="object-fit: cover;object-position: center;">
+                        </span>
+                      </div>
+                      <div class="card-body p-0 px-1">
+                          <h6 class="pt-3 m-0" style="text-transform: capitalize;color: black;">{{sp.product_name}}</h6>
+                          <div class="d-flex justify-content-between align-items-center py-2">
+                            {{getRate(sp.price) | currency:to_currency:2}}</span>
+                            <small class="d-block text-center text-muted">{{sp.type_label}}</small>
+                          </div>
+                      </div>
+                      <div class="card-footer p-0 px-1">
+                        <button class="btn btn-block btn-outline">
+                          {{'BUYNOW' | translate}}
+                           Buy Now 
+                        </button>
+                      </div>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="py-3">
+            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandlerS(newPageNumber)" template-url="public/pages/pagination.html"></dir-pagination-controls>
+          </div> -->
+      </div>
+    </div>
+    <!-- site__body / end -->
+    
